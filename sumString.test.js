@@ -20,4 +20,8 @@ describe("sumString", () => {
   test("Retourne un erreur si un nombre invalide", () => {
     expect(sumString("abc")).toThrowError("Invalid input");
   });
+
+  test("Retourne la somme de plusieurs nombres", () => {
+    expect(sumString("1,2,2")).toBe(5);
+  });
 });
