@@ -1,5 +1,10 @@
-function sumString(input) {
-  if (input === "") return 0; // empty string
+function addString(input) {
+  if (input === "") return "0"; // empty string
+
+  // Nombre manquant à la fin
+  if (input.endsWith(",")) {
+    return "Numéro attendu mais EOF trouvé.";
+  }
 
   // Séparer par des virgules et des sauts de ligne, puis filtrer les éléments vides
   const numbers = input
@@ -17,7 +22,7 @@ function sumString(input) {
   }, 0);
 
   // Retourner la somme arrondie à 2 décimales
-  return Math.round(sum * 100) / 100;
+  return (Math.round(sum * 100) / 100).toString();
 }
 
-module.exports = sumString;
+module.exports = addString;

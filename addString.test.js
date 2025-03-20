@@ -1,39 +1,39 @@
-const sumString = require("./sumString");
+const addString = require("./addString");
 
-describe("sumString", () => {
+describe("addString", () => {
   test("Retourne 0 pour une chaîne vide", () => {
-    expect(sumString("")).toBe(0);
+    expect(addString("")).toBe("0");
   });
 
   test("Retourne la somme de deux nombres", () => {
-    expect(sumString("2,3")).toBe(5);
+    expect(addString("2,3")).toBe("5");
   });
 
   test("Retourne la somme de deux nombres décimaux", () => {
-    expect(sumString("0.1,0.2")).toBe(0.3);
+    expect(addString("0.1,0.2")).toBe("0.3");
   });
 
   test("Retourne le nombre si un nombre en paramètre", () => {
-    expect(sumString("1")).toBe(1);
+    expect(addString("1")).toBe("1");
   });
 
   test("Retourne un erreur si un nombre invalide", () => {
-    expect(sumString("abc")).toThrowError("Invalid input");
+    expect(addString("abc")).toThrowError("Invalid input");
   });
 
   test("Retourne la somme de plusieurs nombres", () => {
-    expect(sumString("1,2,2")).toBe(5);
+    expect(addString("1,2,2")).toBe("5");
   });
 
   test("Retourne la somme sur un /n", () => {
-    expect(sumString("1\n1,2")).toBe(4);
+    expect(addString("1\n1,2")).toBe("4");
   });
 
   test("Retourne la somme sur un /n avec un numéro manquant", () => {
-    expect(sumString("1,\n3")).toBe(4);
+    expect(addString("1,\n3")).toBe("4");
   });
 
   test("Nombre manquant en dernière position", () => {
-    expect(sumString("1,3,")).toBe(4);
+    expect(addString("1,3,")).toBe("Numéro attendu mais EOF trouvé.");
   });
 });
