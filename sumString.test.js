@@ -32,4 +32,8 @@ describe("sumString", () => {
   test("Retourne la somme sur un /n avec un numéro manquant", () => {
     expect(sumString("1,\n3")).toBe(4);
   });
+
+  test("Nombre manquant en dernière position", () => {
+    expect(sumString("1,3,")).toBe(4);
+  });
 });
