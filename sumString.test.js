@@ -28,4 +28,8 @@ describe("sumString", () => {
   test("Retourne la somme sur un /n", () => {
     expect(sumString("1\n1,2")).toBe(4);
   });
+
+  test("Retourne la somme sur un /n avec un numéro manquant", () => {
+    expect(sumString("1,\n3")).toBe(4);
+  });
 });
