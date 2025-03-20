@@ -7,6 +7,7 @@ try {
     sumString("0.1,0.2") === 0.3,
     '❌ sumString("0.1,0.2") doit retourner 0.3'
   );
+  console.assert(sumString("1") === 1, '❌ sumString("1") doit retourner 1');
 
   console.log("Tous les tests passent sont OK !");
 } catch (error) {
