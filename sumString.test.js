@@ -1,15 +1,23 @@
-try {
-  console.assert(
-    sumString("2,3") === 5,
-    '❌ sumString("2,3") doit retourner 5'
-  );
-  console.assert(
-    sumString("0.1,0.2") === 0.3,
-    '❌ sumString("0.1,0.2") doit retourner 0.3'
-  );
-  console.assert(sumString("1") === 1, '❌ sumString("1") doit retourner 1');
+const sumString = require("./sumString");
 
-  console.log("Tous les tests passent sont OK !");
-} catch (error) {
-  console.error(error.message);
-}
+describe("sumString", () => {
+  test("Retourne 0 pour une chaîne vide", () => {
+    expect(sumString("")).toBe(0);
+  });
+
+  test("Retourne la somme de deux nombres", () => {
+    expect(sumString("2,3")).toBe(5);
+  });
+
+  test("Retourne la somme de deux nombres décimaux", () => {
+    expect(sumString("0.1,0.2")).toBe(0.3);
+  });
+
+  test("Retourne le nombre si un nombre en paramètre", () => {
+    expect(sumString("1")).toBe(1);
+  });
+
+  test("Retourne un erreur si un nombre invalide", () => {
+    expect(sumString("abc")).toThrowError("Invalid input");
+  });
+});
